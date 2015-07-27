@@ -1,0 +1,20 @@
+{
+  "name": "datatables-bootstrap3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/dataTables.bootstrap.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "datatables": "^1.10.7",
+    "jquery": "^2.1.4"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha-phantomjs": "^3.6.0",
+    "phantomjs": "^1.9.7-15"
+  }
+}

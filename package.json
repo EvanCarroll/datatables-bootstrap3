@@ -9,8 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "datatables": "^1.10.7",
-    "jquery": "^2.1.4"
+    "datatables": "git+https://github.com/EvanCarroll/DataTables.git"
   },
   "devDependencies": {
     "chai": "^3.2.0",

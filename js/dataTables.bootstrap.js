@@ -15,6 +15,8 @@
 	var factory = function( $, DataTable ) {
 		"use strict";
 
+		var DataTable = $.fn.dataTable;
+
 
 		/* Set the defaults for DataTables initialisation */
 		$.extend( true, DataTable.defaults, {
@@ -196,17 +198,21 @@
 	}
 	else if ( typeof exports === 'object' ) {
 		// Node/CommonJS
-		module.exports = function( jQuery ) {
-			var $ = jQuery;
-			if ( $ === undefined ) {
-				$ = require('jquery');
+		// this requires the version jQuery with DataTables extensions.
+		module.exports = function( $dt ) {
+			if ( $dt === undefined ) {
+				var $dt = require('datatables');
 			}
-			return factory( $, require('datatables') );
+			if ( $dt.fn === undefined || $dt.fn.DataTable === undefined ) {
+				console.log($dt);
+				throw new Error('dataTables.bootstrap requires a jQuery that has be extended with DataTables, not a vanalla jQuery');
+			}
+			return factory( $dt );
 		}
 	}
 	else if ( jQuery ) {
 		// Otherwise simply initialise as normal, stopping multiple evaluation
-		factory( jQuery, jQuery.fn.dataTable );
+		factory( jQuery );
 	}
 
 

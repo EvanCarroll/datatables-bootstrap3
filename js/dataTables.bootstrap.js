@@ -200,12 +200,13 @@
 		// Node/CommonJS
 		// this requires the version jQuery with DataTables extensions.
 		module.exports = function( $dt ) {
+			// no arguments
 			if ( $dt === undefined ) {
-				var $dt = require('datatables');
+				var $dt = require('datatables')();
 			}
+			// dt-ify vanilla jquery
 			if ( $dt.fn === undefined || $dt.fn.DataTable === undefined ) {
-				console.log($dt);
-				throw new Error('dataTables.bootstrap requires a jQuery that has be extended with DataTables, not a vanalla jQuery');
+				var $dt = require('datatables')($dt);
 			}
 			return factory( $dt );
 		}
